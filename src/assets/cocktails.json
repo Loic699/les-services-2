@@ -1,0 +1,11 @@
+{
+    "cocktails": [
+        {
+            "name":"Jäger-Bomb",
+            "price": 20,
+            "img":"assets/jager-bomb.jpg"
+
+        }
+
+    ]
+}

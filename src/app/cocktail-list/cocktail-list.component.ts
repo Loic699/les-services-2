@@ -11,14 +11,18 @@ import { Cocktail } from '../cocktail.list';
 
 export class CocktailListComponent implements OnInit {
 cocktails:Cocktail[] = []
+public  title:string  =  '';
+private  service:CocktailService;
 
-
-  constructor(public getCocktailsService:CocktailService){}
-
-  ngOnInit(): void {
-    this.getCocktailsService.addCocktail(new Cocktail("jager bomb", 10, "./assets/jager-bomb.jpg"))
-    this.getCocktailsService.addCocktail(new Cocktail ("mojito", 7, "./assets/Mojito.jpg"))
-    this.cocktails = this.getCocktailsService.getCocktails()
+  constructor(public param_service:CocktailService){
+    this.service  =  param_service;
   }
 
+  public ngOnInit(): void {
+    this.service.getCocktails().subscribe(
+      (param_cocktails:Cocktail[]) => {
+          this.cocktails  =  param_cocktails;
+  }
+    );
+ }
 }
